@@ -1,0 +1,27 @@
+<%- include('../partials/header', { title: 'Edit Post' }) %>
+
+<h2>Edit Post</h2>
+
+<form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+  <label>Title</label>
+  <input type="text" name="title" value="<%= post.title %>" required />
+
+  <label>Description</label>
+  <input type="text" name="description" value="<%= post.description %>" required />
+
+  <label>Tags</label>
+  <input type="text" name="tags" value="<%= post.tags %>" />
+
+  <label>Body</label>
+  <textarea name="body" rows="10"><%= post.body %></textarea>
+
+  <label>State</label>
+  <select name="state">
+    <option value="draft" <%= post.state === 'draft' ? 'selected' : '' %>>Draft</option>
+    <option value="published" <%= post.state === 'published' ? 'selected' : '' %>>Published</option>
+  </select>
+
+  <button type="submit">Update</button>
+</form>
+
+<%- include('../partials/footer') %>

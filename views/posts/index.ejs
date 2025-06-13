@@ -1,0 +1,28 @@
+<%- include('../partials/header', { title: 'All Posts' }) %>
+
+<h2>Published Posts</h2>
+
+<% if (posts.length === 0) { %>
+  <p>No posts found.</p>
+<% } else { %>
+  <% posts.forEach(post => { %>
+    <div class="post">
+      <h3><a href="/posts/<%= post._id %>"><%= post.title %></a></h3>
+      <p><%= post.description %></p>
+      <small>Author: <%= post.author %> | Read Time: <%= post.readTime %></small>
+    </div>
+  <% }) %>
+<% } %>
+
+<!-- Pagination -->
+<div class="pagination">
+  <% if (currentPage > 1) { %>
+    <a href="/posts?page=<%= currentPage - 1 %>">Previous</a>
+  <% } %>
+  Page <%= currentPage %> of <%= totalPages %>
+  <% if (currentPage < totalPages) { %>
+    <a href="/posts?page=<%= currentPage + 1 %>">Next</a>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') %>

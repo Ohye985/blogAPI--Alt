@@ -1,0 +1,12 @@
+<%- include('../partials/header', { title: post.title }) %>
+
+<article>
+  <h2><%= post.title %></h2>
+  <% if (post.coverPhoto) { %>
+    <img src="/img/posts/<%= post.coverPhoto %>" alt="Cover Photo" />
+  <% } %>
+  <p><%= post.body %></p>
+  <small>Author: <%= post.author %> | Read Time: <%= post.readTime %></small>
+</article>
+
+<%- include('../partials/footer') %>
