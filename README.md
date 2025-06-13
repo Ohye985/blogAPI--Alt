@@ -5,12 +5,15 @@
 - GET /api/posts -------------------(gets all published posts)
 
 - POST /api/posts -----------------(create a new post)
+
+    ```
     {
-    "title": "Let US ALL go",
-    "description": "It must work forcefully",
-    "tags": ["Motivation"],
-    "body": "A REST API"
+        "title": "Let US ALL go",
+        "description": "It must work forcefully",
+        "tags": ["Motivation"],
+        "body": "A REST API"
     } ----------Body format for creating new post
+    ```
 
 - PUT /api/posts/:postId ----------(update a post)
 
